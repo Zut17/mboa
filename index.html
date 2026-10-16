@@ -1,55 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mboa Market</title>
-    <!-- Gestion du CSS -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <!-- Entete de page -->
-    <header>
-        <div class="container">
-            <div id="logo">
-                <a href="">
-                    Mboa <span>Market</span>
-                </a>
-            </div>
-            <div id="menu">
-                <a href="#" id="bnt-panier">
-                    Panier
-                    <span><i class="fa-solid fa-cart-shopping"></i></span>
-                </a>
-            </div>
+    <!--Getsion du css -->
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- en tete de page  -->
+    <header id="entete">
+      <div class="container">
+        <div id="logo">
+          <a href=""> Mboa<span>Market</span> </a>
         </div>
+
+        <div id="menu">
+          <a href="#" id="btn_panier">
+            Panier
+            <span><i class="fa-solid fa-cart-shopping"></i></span>
+          </a>
+        </div>
+      </div>
     </header>
 
     <!-- conteneur de la page -->
-     <main id="conteneur">
-        <!-- SECTION CARROUSEL -->
-         <section id="carrousel">
-            <div class="slide" style="background-image: url();">
-                <div class="slide_container">
-                    <div class="slide_text">
-                        <h2>Titre 1</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            Aperiam explicabo optio nulla velit incidunt! 
-                            Voluptate aut non sint nobis laborum autem quo magni dignissimos totam.
-                            Molestias adipisci corporis veritatis quae.
-                        </p>
-                        <div class="buttons">
-                            <a href="#">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
+    <main id="conteneur">
+      <section id="carrousel">
+        <div class="slide" style="background-image: url('images/salafe.jfif');">
+          <div class="slide_container">
+            <div class="slide_text">
+              <h2>Titre 1</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                consectetur iusto in minima nulla excepturi quo tenetur ex nobis 
+                recusandae commodi quam nostrum, quos reprehenderit modi
+                doloremque veritatis. Modi, officiis.
+              </p>
+              <div class="buttons">
+                <a href="#"> En savoir +</a>
+              </div>
             </div>
-         </section>
-     </main>
+          </div>
+        </div>
 
-    <!-- Gestion du JavaScript -->
-     <script type = "text/javascript" src="js/script.js"></script>
-</body>
-</html>
+        <!-- Boutons d'options du slide -->
+         <div class="slide_options">
+            <span> <i class="fa-solid fa-chevron-left"></i> </span>
+            <span> <i class="fa-solid fa-chevron-right"></i> </span>
+         </div>
+      </section>
+    </main>
+ 
+
+    <!--gestion du javascript-->
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html> 
