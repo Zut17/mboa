@@ -4,18 +4,18 @@ declaration des variables
 =====================================
 */
 :root {
-  --main-color: #e9a23b;
-  --second-color: #1f4d3a;
-  --third-color: #c2562b;
-  --gold-color: #ffd700;
-  --white-color: #ffffff;
-  --success-color: darkgreen;
-  --warning-color: darkorange;
-  --danger-color: darkred;
-  --slide-bg-color: rgba(0, 0, 0, 0.45);
-  --main-font: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
-  --title-font: forte, arial, sans-serif;
-  --font-size: 12pt;
+    --main-color: #e9a23b;
+    --second-color: #1f4d3a;
+    --third-color: #c2562b;
+    --gold-color: #ffd700;
+    --white-color: #ffffff;
+    --success-color: darkgreen;
+    --warning-color: darkorange;
+    --danger-color: darkred;
+    --slide-bg-color: rgba(0, 0, 0, 0.45);
+    --main-font: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    --title-font: forte, arial, sans-serif;
+    --font-size: 12pt;
 }
 
 /*
@@ -24,23 +24,25 @@ declaration des animations
 =====================================
 */
 @keyframes fondu {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes comingleft {
-  from {
-    opacity: 0;
-    transform: translateX(-70px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
+    from {
+        opacity: 0;
+        transform: translateX(-70px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
 
 /*
@@ -49,62 +51,83 @@ design global
 =====================================
 */
 * {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 body {
-  width: auto;
-  min-height: 100vh;
-  font-family: var(--main-font);
-  font-size: var(--font-size);
+    width: auto;
+    min-height: 100vh;
+    font-family: var(--main-font);
+    font-size: var(--font-size);
 }
 
 .hide {
-  display: none !important;
+    display: none !important;
 }
 
 .success {
-  color: var(--success-color) !important;
+    color: var(--success-color) !important;
 }
 
 .warning {
-  color: var(--warning-color) !important;
+    color: var(--warning-color) !important;
 }
 
 .danger {
-  color: var(--danger-color) !important;
+    color: var(--danger-color) !important;
 }
 
 .bg-success {
-  background-color: var(--success-color) !important;
+    background-color: var(--success-color) !important;
 }
 
 .bg-warning {
-  background-color: var(--warning-color) !important;
+    background-color: var(--warning-color) !important;
 }
 
 .bg-danger {
-  background-color: var(--danger-color) !important;
+    background-color: var(--danger-color) !important;
 }
 
 a,
 a:visited {
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .overflow {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .close {
-  font-size: 14pt;
-  font-weight: bold;
-  cursor: pointer;
-  color: var(--danger-color);
+    font-size: 14pt;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--danger-color);
+}
+
+button:disabled{
+    opacity: 0.4;
+    cursor: not-allowed !important;
+}
+.badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    font-size: 9pt;
+    color: var(--white-color);
+    background-color: var(--main-color);
+}
+
+.message {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--second-color);
+    font-size: 13pt;
 }
 
 /*
@@ -113,80 +136,81 @@ design entete
 =====================================
 */
 #entete {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  padding: 20px 40px;
-  transition: all 0.5s ease-in-out;
-  z-index: 1000; /*pour mettre le menu au premier plan*/
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 20px 40px;
+    transition: all 0.5s ease-in-out;
+    z-index: 1000;
+    /*pour mettre le menu au premier plan*/
 }
 
 #entete .container {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #entete a {
-  color: var(--white-color);
+    color: var(--white-color);
 }
 
 #logo a {
-  font-size: 20pt;
-  font-weight: bold;
+    font-size: 20pt;
+    font-weight: bold;
 }
 
 #logo span {
-  color: var(--main-color);
+    color: var(--main-color);
 }
 
 #btn_panier {
-  padding: 10px 20px;
-  border: 2px solid var(--white-color);
-  border-radius: 30px;
+    padding: 10px 20px;
+    border: 2px solid var(--white-color);
+    border-radius: 30px;
 }
 
 #btn_panier:hover {
-  background-color: var(--main-color);
-  color: var(--white-color);
-  transition: all 0.5s ease-in-out;
+    background-color: var(--main-color);
+    color: var(--white-color);
+    transition: all 0.5s ease-in-out;
 }
 
 #nb_articles {
-  display: inline-block;
-  min-width: 22px;
-  padding: 1px 6px;
-  margin-left: 4px;
-  text-align: center;
-  font-size: 8pt;
-  font-weight: bold;
-  color: var(--white-color);
-  background-color: var(--third-color);
-  border-radius: 20px;
+    display: inline-block;
+    min-width: 22px;
+    padding: 1px 6px;
+    margin-left: 4px;
+    text-align: center;
+    font-size: 8pt;
+    font-weight: bold;
+    color: var(--white-color);
+    background-color: var(--third-color);
+    border-radius: 20px;
 }
 
 /* pour la couleur de fond de l'entete */
 
 #entete.entete_fond {
-  background-color: var(--white-color);
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-  padding: 12px 40px;
+    background-color: var(--white-color);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 12px 40px;
 }
 
 #entete.entete_fond a {
-  color: var(--second-color);
+    color: var(--second-color);
 }
 
 #entete.entete_fond #btn_panier {
-  color: var(--second-color);
+    color: var(--second-color);
 }
 
 #entete.entete_fond #btn_panier:hover {
-  color: var(--white-color);
-  border-color: var(--main-color);
+    color: var(--white-color);
+    border-color: var(--main-color);
 }
 
 /*
@@ -196,88 +220,88 @@ design carrousel
 */
 
 #carrousel {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 #carrousel .slide {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  animation: fondu 1s ease-in-out;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    animation: fondu 1s ease-in-out;
 }
 
 #carrousel .slide .slide_container {
-  width: 100%;
-  height: 100%;
-  padding: 0px 8%;
-  color: var(--white-color);
-  background-color: var(--slide-bg-color);
-  display: flex;
-  justify-content: left;
-  align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0px 8%;
+    color: var(--white-color);
+    background-color: var(--slide-bg-color);
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 
 #carrousel .slide_text {
-  width: 50%;
-  min-width: 250px;
-  animation: comingleft 0.8s ease-in-out;
+    width: 50%;
+    min-width: 250px;
+    animation: comingleft 0.8s ease-in-out;
 }
 
 #carrousel .slide_text h2 {
-  font-size: 35pt;
-  line-height: 1.1;
+    font-size: 35pt;
+    line-height: 1.1;
 }
 
 #carrousel .slide_text p {
-  font-size: 13pt;
-  margin: 20px 0px;
+    font-size: 13pt;
+    margin: 20px 0px;
 }
 
 #carrousel .slide_text .buttons a {
-  padding: 14px 30px;
-  color: var(--white-color);
-  background-color: var(--main-color);
-  border-radius: 30px;
-  font-weight: bold;
+    padding: 14px 30px;
+    color: var(--white-color);
+    background-color: var(--main-color);
+    border-radius: 30px;
+    font-weight: bold;
 }
 
 #carrousel .slide_text .buttons a:hover {
-  background-color: var(--second-color);
-  transition: all 0.5s ease-in-out;
+    background-color: var(--second-color);
+    transition: all 0.5s ease-in-out;
 }
 
 #carrousel .slide_options {
-  position: absolute;
-  left: 8%;
-  bottom: 40px;
-  z-index: 200;
+    position: absolute;
+    left: 8%;
+    bottom: 40px;
+    z-index: 200;
 }
 
 #carrousel .slide_options span {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  margin-right: 10px;
-  font-size: 1.2em;
-  color: var(--white-color);
-  border: 2px solid var(--white-color);
-  border-radius: 50%;
-  cursor: pointer;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 1.2em;
+    color: var(--white-color);
+    border: 2px solid var(--white-color);
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 #carrousel .slide_options span:hover {
-  background-color: var(--main-color);
-  border-color: var(--main-color);
-  transition: all 0.5s ease-in-out;
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    transition: all 0.5s ease-in-out;
 }
 
 /*
@@ -287,38 +311,38 @@ design boutique
 */
 
 #boutique {
-  padding: 70px 8%;
-  background-color: var(--white-color);
-  scroll-margin-top: 60px;
+    padding: 70px 8%;
+    background-color: var(--white-color);
+    scroll-margin-top: 60px;
 }
 
 #boutique .boutique_entete {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 #boutique .boutique_entete h2 {
-  font-size: 26pt;
-  color: var(--second-color);
+    font-size: 26pt;
+    color: var(--second-color);
 }
 
 #boutique .boutique_entete #nb_resultats {
-  color: var(--second-color);
+    color: var(--second-color);
 }
 
 #boutique .boutique_outils {
     display: flex;
     align-items: stretch;
     gap: 15px;
-    margin:25px 0px 15px;
+    margin: 25px 0px 15px;
 }
 
-#boutique .recherche{
+#boutique .recherche {
     flex: 1;
-    display:flex;
+    display: flex;
     align-items: center;
     gap: 10px;
     padding: 0px 20px;
@@ -327,14 +351,14 @@ design boutique
     border-radius: 30px;
 }
 
-#boutique .recherche input{
+#boutique .recherche input {
     flex: 1;
     padding: 14px 0px;
     border: none;
     outline: none;
     font-size: var(--font-size);
     background: none;
-    
+
 }
 
 #boutique select {
@@ -367,36 +391,36 @@ design boutique
     background-color: var(--white-color);
 }
 
-#categories{
+#categories {
     display: flex;
     flex-wrap: wrap;
-    gap:10px;
-margin-bottom: 30px;
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
-#categories .categorie{
-padding:8px 20px;
-border:1px solid var(--second-color);
-border-radius:30px ;
-background-color: var(--white-color);
-cursor: pointer;
+#categories .categorie {
+    padding: 8px 20px;
+    border: 1px solid var(--second-color);
+    border-radius: 30px;
+    background-color: var(--white-color);
+    cursor: pointer;
 }
 
 #categories .categorie:hover,
 #categories .categorie.actif {
-color:var(--white-color);
-background-color: var(--second-color);
-border-color:var(--second-color);
-transition: all 0.4s ease-in-out;
+    color: var(--white-color);
+    background-color: var(--second-color);
+    border-color: var(--second-color);
+    transition: all 0.4s ease-in-out;
 }
 
-#produits{
+#produits {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
 }
 
-.produit{
+.produit {
     background-color: var(--white-color);
     border-radius: 20px;
     overflow: hidden;
@@ -405,11 +429,12 @@ transition: all 0.4s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
-.produit:hover{
+.produit:hover {
     transform: translateY(-6px);
     box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
 }
-.produit_icon{
+
+.produit_icon {
     position: relative;
     height: 160px;
     display: flex;
@@ -432,12 +457,55 @@ transition: all 0.4s ease-in-out;
         width: 100%;
     }
 }
+
 .produit_texte {
     padding: 15px 18px;
 }
-.produit_categorie{
+
+.produit_categorie {
     font-size: 9pt;
     font-weight: bold;
     text-transform: uppercase;
     color: var(--third-color);
 }
+
+.produit_texte h3 {
+    margin: 4px 0px;
+    font-size: 13pt;
+    cursor: pointer;
+}
+
+.produit_unite {
+    color: var(--second-color);
+    font-size: 10pt;
+}
+
+.produit_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.produit_footer b {
+    white-space: nowrap;
+    font-size: 13pt;
+    color: var(--second-color);
+}
+
+.produit_footer button{
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    font-size: 12pt;
+    color: var(--white-color);
+    background-color: var(--second-color);
+    cursor: pointer;
+}
+
+.produit_footer button:hover{
+    background-color: var(--main-color);
+    transition: all 0.3s ease-in-out;
+}
+
