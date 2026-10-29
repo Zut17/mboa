@@ -21,19 +21,19 @@ const datas_slides = [
     },
     {
         titre: "Payer par Mobile Money",
-        decription: "Réglez vos achats directement en ligne à partir de notre panier."
+        description: "Réglez vos achats directement en ligne à partir de notre panier."
     }
 ]
 
-carrousel.innerHTML = "";
+let html = "";
 for (let i = 0; i < datas_slides.length; i++) {
     const data = datas_slides[i];
-    carrousel.innerHTML += `
+    html += `
     <div class="slide" style="background-image: url('images/slide (${i + 1}).jfif');">
           <div class="slide_container">
             <div class="slide_text">
               <h2>${data.titre}</h2>
-              <p>${data.decription}</p>
+              <p>${data.description}</p>
               <div class="buttons">
                 <a href="#"> En savoir +</a>
               </div>
@@ -41,13 +41,14 @@ for (let i = 0; i < datas_slides.length; i++) {
           </div>
         </div>`;
 }
-carrousel.innerHTML += `
+html += `
     <!-- Boutons d'options du slide -->
     <div class="slide_options">
-        <span> <i class="fa-solid fa-chevron-left"></i> </span>
-        <span> <i class="fa-solid fa-chevron-right"></i> </span>
+        <span class="slide_left"> <i class="fa-solid fa-chevron-left"></i> </span>
+        <span class="slide_right"> <i class="fa-solid fa-chevron-right"></i> </span>
     </div>
 `;
+carrousel.innerHTML = html;
 /*
 ===========================
 DECLARATION DES VARIABLES
@@ -112,16 +113,12 @@ LANCER LE SLIDE
 ====================================
 */
 
-slide_left.forEach(function (element) {
-    element.addEventListener("click", function (e) {
-        showSlide(slide_courant - 1, "left");
-    });
+slide_left.addEventListener("click", function () {
+    showSlide(slide_courant - 1, "left");
 });
 
-slide_right.forEach(function (element) {
-    element.addEventListener("click", function (e) {
-        showSlide(slide_courant + 1, "right");
-    });
+slide_right.addEventListener("click", function () {
+    showSlide(slide_courant + 1, "right");
 });
 
 

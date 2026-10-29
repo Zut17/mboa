@@ -31,18 +31,18 @@ function creerProduit(produit) {
 /*
 ======================================
 Quelques fonctions utiles
-=====================================
+======================================
 */
 
 //Chargement des produits depuis le fichier json
 async function chargerProduits() {
     try {
-        const reponse = await fetch("data/produits.json");
+        const reponse = await fetch("data/produit.json");
         if (!reponse.ok) {
-            throw new Error("Fichier data/produits.json introuvable");
+            throw new Error("Fichier data/produit.json introuvable");
         }
-        datas = await reponse.json();
-        console.log(datas);
+        const datas = await reponse.json();
+        
         return datas;
     }
     catch (erreur) {
@@ -71,15 +71,15 @@ function afficherProduit(liste){
             const produit = liste[i];
             const html = `
                 <div class="produit">
-                    <div class="produit_icon" data-actions="detail" data-id="${produit.id}">
+                    <div class="produit_icon" data-action="detail" data-id="${produit.id}">
                         <i class="${produit.icon}"></i>
                     </div>
                     <div class="produit_texte">
                         <span class="produit_categorie">${produit.categorie}</span>
                         <h3 data-action="detail" data-id="${produit.id}">${produit.nom}</h3>
                         <p class="produit_unite">${produit.unite}</p>
-                        <div class="produit_footer>
-                            <b>${produit.prix}</b>
+                        <div class="produit_footer">
+                            <b>${produit.prix} FCFA</b>
                             <button data-action="ajouter" data-id="${produit.id}">
                                 <i class="fa-solid fa-cart-plus"></i>
                             </button>
@@ -87,6 +87,20 @@ function afficherProduit(liste){
                     </div>
                 </div>
             `;
+            produits.innerHTML += html;
         }
     }
 }
+
+/*
+======================================
+CHARGEMENT DES DONNEES
+======================================
+*/
+
+async function initBoutique() {
+    const datas = await chargerProduits();
+    afficherProduit(datas);
+    console.log(datas);
+}
+initBoutique();
