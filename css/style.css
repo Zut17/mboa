@@ -233,3 +233,96 @@ design carrousel
     border-color : var(--main-color);
     transition: all 0.2s ease-in-out;
 }
+/*
+======================================
+design boutique
+=====================================
+*/
+
+#boutique {
+  padding: 70px 8%;
+  background-color: var(--white-color);
+  scroll-margin-top: 60px;
+}
+
+#boutique .boutique_entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#boutique .boutique_entete h2 {
+  font-size: 26pt;
+  color: var(--second-color);
+}
+
+#boutique .boutique_entete #nb_resultats {
+  color: var(--second-color);
+}
+
+#boutique .boutique_outils {
+    display: flex;
+    gap: 15px;
+    margin:25px 0px 15px;
+}
+
+#boutique .recherche{
+    flex: 1;
+    display:flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 20px;
+    background-color: var(--white-color);
+    border: 1px solid var(--second-color);
+    border-radius: 30px;
+}
+
+#boutique .recherche input{
+    flex: 1;
+    padding: 14px 0px;
+    border: none;
+    outline: none;
+    font-size: var(--font-size);
+    background: none;
+    
+}
+
+#boutique select {
+    padding: 0px 20px;
+    border: 1px solid var(--second-color);
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: var(--font-size);
+    background-color: var(--white-color);
+}
+
+#categories{
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+margin-bottom: 30px;
+}
+
+#categories .categorie{
+padding:8px 20px;
+border:1px solid var(--second-color);
+border-radius:30px ;
+background-color: var(--white-color);
+cursor: pointer;
+}
+
+#categories .categorie:hover,
+#categories .categorie.actif {
+color:var(--white-color);
+background-color: var(--second-color);
+border-color:var(--second-color);
+transition: all 0.4s ease-in-out;
+}
+
+#produits{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 25px;
+}
