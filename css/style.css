@@ -109,10 +109,11 @@ a:visited {
     color: var(--danger-color);
 }
 
-button:disabled{
+button:disabled {
     opacity: 0.4;
     cursor: not-allowed !important;
 }
+
 .badge {
     position: absolute;
     top: 12px;
@@ -493,7 +494,7 @@ design boutique
     color: var(--second-color);
 }
 
-.produit_footer button{
+.produit_footer button {
     width: 44px;
     height: 44px;
     border: none;
@@ -504,8 +505,37 @@ design boutique
     cursor: pointer;
 }
 
-.produit_footer button:hover{
+.produit_footer button:hover {
     background-color: var(--main-color);
     transition: all 0.3s ease-in-out;
 }
 
+.produit_prix {
+    text-align: center;
+    font-weight: bold;
+    color: var(--main-color);
+    font-weight: 14pt;
+}
+
+.produit_qte {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.produit_qte span {
+    width: 28px;
+    height: 28px;
+    line-height: 23px;
+    text-align: center;
+    border: 1px solid var(--second-color);
+    border-radius: 50%;
+    columns: var(--second-color);
+    user-select: none;
+    cursor: pointer;
+}
+
+.produit_qte span:hover {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}

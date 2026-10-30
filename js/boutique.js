@@ -1,6 +1,7 @@
 const produits = document.querySelector("#produits");
+const nb_articles = document.querySelector("#nb_articles");
 
-/*
+let DATAS_PRODUITS = null/*
 ======================================
 creation d'un produit
 =====================================
@@ -42,7 +43,7 @@ async function chargerProduits() {
             throw new Error("Fichier data/produit.json introuvable");
         }
         const datas = await reponse.json();
-        
+
         return datas;
     }
     catch (erreur) {
@@ -56,18 +57,18 @@ async function chargerProduits() {
 }
 
 //Afficher les produits
-function afficherProduit(liste){
-    if(liste == null || liste.length == 0){
-        produits.innerHTML=`
+function afficherProduit(liste) {
+    if (liste == null || liste.length == 0) {
+        produits.innerHTML = `
             <p class="message">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 Aucun produit trouvé.
             </p>
         `;
     }
-    else{
-        produits.innerHTML= "";
-        for(let i=0; i <liste.length; i++){
+    else {
+        produits.innerHTML = "";
+        for (let i = 0; i < liste.length; i++) {
             const produit = liste[i];
             const html = `
                 <div class="produit">
@@ -78,8 +79,13 @@ function afficherProduit(liste){
                         <span class="produit_categorie">${produit.categorie}</span>
                         <h3 data-action="detail" data-id="${produit.id}">${produit.nom}</h3>
                         <p class="produit_unite">${produit.unite}</p>
+                        <p class="produit_prix">${produit.prix} FCFA</p>
                         <div class="produit_footer">
-                            <b>${produit.prix} FCFA</b>
+                            <div class="produit_qte" data-stock="${produit.stock}">
+                                <span data-action="moins" data-id="${produit.id}"> - </span>
+                                <b class="produit_qtecommande">1</b>
+                                <span data-action="plus" data-id="${produit.id}"> + </span>
+                            </div>
                             <button data-action="ajouter" data-id="${produit.id}">
                                 <i class="fa-solid fa-cart-plus"></i>
                             </button>
@@ -92,15 +98,90 @@ function afficherProduit(liste){
     }
 }
 
-/*
-======================================
-CHARGEMENT DES DONNEES
-======================================
-*/
+//Retrouve un produit a partir de son id
+function rechercheProduit(id, liste) {
+    return liste.find(function (val) {
+        return val.id == id;
+    });
+}
 
+// Initialiser le panier
+function initPanier() {
+    const panier = localStorage.getItem("panier");
+    if (panier != null) {
+        nb_articles.classList.remove('hide');
+        let nb = JSON.parse(panier).length;
+        nb_articles.textContent = nb;
+    }
+    else {
+        nb_articles.textContent = 0;
+        nb_articles.classList.add('hide');
+    }
+}
+
+//Ajouter un produit dans le panier
+function ajoutProduitPanier(produit) {
+    const panier = localStorage.getItem("panier");
+    if (panier != null) {
+        let liste = JSON.parse(panier);
+        let data = rechercheProduit(produit.id, liste);
+        if (data == null) {
+            liste.push(produit);
+            localStorage.setItem("panier", JSON.stringify(liste));
+        }
+        else {
+            alert("Ce produit se trouve déjà dans le panier.");
+        }
+    }
+    else {
+        let liste = [produit];
+        localStorage.setItem("panier", JSON.stringify(liste));
+    }
+
+    initPanier();
+}
+
+// Initialisation et affichage des produits
 async function initBoutique() {
-    const datas = await chargerProduits();
-    afficherProduit(datas);
-    console.log(datas);
+    DATAS_PRODUITS = await chargerProduits();
+    afficherProduit(DATAS_PRODUITS);
+    console.log(DATAS_PRODUITS);
 }
 initBoutique();
+initPanier();
+
+/*
+======================================
+GESTION DES EVENMENTS
+======================================
+*/
+produits.addEventListener('click', function (e) {
+    const element = e.target.closest('[data-action]');
+
+    if (element.matches('[data-action="moins"]')) {
+        const bloc = element.parentNode.querySelector('b');
+        if (parseInt(bloc.textContent) > 1) {
+            bloc.textContent = parseInt(bloc.textContent) - 1;
+        }
+    }
+    if (element.matches('[data-action="plus"]')) {
+        const bloc = element.parentNode.querySelector('b');
+        const stock = element.parentNode.dataset.stock;
+        if (parseInt(bloc.textContent) < stock) {
+            bloc.textContent = parseInt(bloc.textContent) + 1;
+        }
+    }
+    if (element.matches('[data-action="ajouter"]')) {
+        const id = element.dataset.id;
+        const qte = parseInt(element.parentNode.querySelector(".produit_qtecommande").textContent);
+        let produit = rechercheProduit(id, DATAS_PRODUITS);
+        if (produit != null) {
+            produit.qte = qte;
+            ajoutProduitPanier(produit);
+        }
+        else {
+            alert("Ce produit se trouve deja dans le panier.");
+        }  
+    }
+}
+);
