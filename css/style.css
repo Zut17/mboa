@@ -539,3 +539,105 @@ design boutique
     background-color: var(--main-color);
     border-color: var(--main-color);
 }
+
+/*
+======================================
+DESIGN FENETRE MODAL
+======================================
+*/
+
+#modal_commande{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 12pt;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999999999999;
+}
+
+#modal_commande .modal_container{
+    position: relative;
+    padding: 30px 30px;
+    background-color: var(--white-color);
+}
+
+#modal_commande #modal_fermer{
+    position: absolute;
+    top: 12px;
+    right: 25px;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--danger-color);
+    cursor: pointer;
+}
+#modal_form{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: start;
+    gap: 20px;
+    margin: 20px 0px;
+}
+
+#modal_form fieldset{
+    padding: 20px 20px;
+    border: 2px dashed var(--second-color);
+}
+
+#modal_form .commande_info .champ input, 
+#modal_form .commande_info .champ select{
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    margin: 5px 0px;
+    border: 2px solid var(--second-color);
+    border-radius: 10px;
+}
+
+#modal_form .commande_produit table{
+    font-size: 10pt;
+    margin: 0px 0px 15px 0px;
+}
+#modal_form .commande_produit table td{
+    text-align: center;
+}
+#modal_form .commande_produit table .delete{
+    color: var(--danger-color);
+    cursor: pointer;
+}
+
+#total_commande {
+    text-align: center;
+    font-size: 13pt;
+    font-weight: bold;
+    color: var(--second-color);
+    margin: 0px 0px 15px 0px;
+}
+
+#modal_form .commande_produit .submit{
+    text-align: right;
+    
+}
+
+#modal_form .commande_produit .submit input{
+    padding: 10px 12px;
+    font-weight: bold;
+    color: var(--white-color);
+    background-color: var(--second-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#confirmation{
+    text-align: center;
+    padding: 10px 10px;
+    color: var(--white-color);
+    background-color: var(--second-color);
+}
